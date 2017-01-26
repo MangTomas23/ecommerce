@@ -52,6 +52,20 @@
       return $this->dbh->exec("DELETE FROM customers WHERE id=$id");
     }
 
+    public function login($email, $password) {
+      $stmt = $this->dbh->prepare('SELECT * FROM customers WHERE email=:email');
+      $stmt->bindParam(':email', $email);
+      $stmt->execute();
+
+      $result = $stmt->fetch(PDO::FETCH_OBJ);
+      if($result) {
+        if(password_verify($password, $result->password)) {
+          return true;
+        }
+      }
+
+      return false;
+    }
   }
 
 ?>
