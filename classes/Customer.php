@@ -18,8 +18,8 @@
         $stmt->bindParam(':address', $address);
         $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
         $stmt->bindParam(':password', $encrypted_password);
-        $stmt->bindParam(':email');
-        $stmt->bindParam(':contact_no');
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':contact_no', $contact_no);
         $stmt->execute();
       }catch(PDOException $e) {
         echo $e->getMessage();
