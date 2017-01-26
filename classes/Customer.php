@@ -8,16 +8,18 @@
       $this->dbh = $db->getConnection();
     }
 
-    public function create($firstname, $lastname, $address, $password) {
+    public function create($firstname, $lastname, $address, $password, $email, $contact_no) {
       try {
         $stmt = $this->dbh->prepare("INSERT INTO customers (firstname, lastname,
-                                     address, password) VALUES (:firstname, :lastname,
-                                     :address, :password)");
+                                     address, password, email, contact_no) VALUES (:firstname, :lastname,
+                                     :address, :password, :email, :contact_no)");
         $stmt->bindParam(':firstname', $firstname);
         $stmt->bindParam(':lastname', $lastname);
         $stmt->bindParam(':address', $address);
         $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
         $stmt->bindParam(':password', $encrypted_password);
+        $stmt->bindParam(':email');
+        $stmt->bindParam(':contact_no');
         $stmt->execute();
       }catch(PDOException $e) {
         echo $e->getMessage();
