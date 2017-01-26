@@ -37,7 +37,7 @@ include 'header.php';
         <input class="form-control login-input" type="text" name="name" value=""
                placeholder="confirm password">
       </div>
-      <button class="login-button" type="button" name="button">
+      <button class="login-button" type="button" name="button" title="Submit">
         <i class="fa fa-chevron-right"></i>
       </button>
     </form>

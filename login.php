@@ -15,7 +15,7 @@ include 'header.php';
         <input type="text" class="login-input form-control" name="name" value=""
                placeholder="password">
       </div>
-      <button type="button" class="login-button" name="button">
+      <button type="button" class="login-button" name="button" title="Login">
         <i class="fa fa-chevron-right"></i>
       </button>
     </form>
