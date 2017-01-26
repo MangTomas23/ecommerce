@@ -60,11 +60,26 @@
       $result = $stmt->fetch(PDO::FETCH_OBJ);
       if($result) {
         if(password_verify($password, $result->password)) {
+          $_SESSION['user_session'] = $result->id;
           return true;
         }
       }
-
       return false;
+    }
+
+    public function isLoggedIn() {
+      if(isset($_SESSION['user_session'])) {
+        return true;
+      }
+      return false;
+    }
+
+    public function logout() {
+        session_destroy();
+    }
+
+    public function redirect($url) {
+      header("Location: $url");
     }
   }
 

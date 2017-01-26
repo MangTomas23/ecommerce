@@ -71,3 +71,8 @@ body {
   color: #333;
   text-decoration: none;
 }
+
+.error-text {
+  color: #e65d5d;
+  font-size: 12px;
+}
