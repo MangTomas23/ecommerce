@@ -1,5 +1,5 @@
 <?php
-$page_title = "Register";
+$page_title = 'Register';
 include 'header.php';
 require 'Classes/Customer.php';
 
