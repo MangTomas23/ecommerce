@@ -32,10 +32,15 @@ body {
   border: 0;
   border-bottom: 2px solid #efefef;
   box-shadow: none;
+  border-color: #efefef;
 }
 
 .login-input:focus {
   border-color: #28aadc;
+}
+
+.login-input:focus:invalid {
+  border-color: #ff5858;
 }
 
 .login-button {

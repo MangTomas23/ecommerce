@@ -1,7 +1,6 @@
 <?php
 $page_title = 'Login';
 include 'header.php';
-session_start();
 require 'Classes/Customer.php';
 
 $customer = new Customer();
