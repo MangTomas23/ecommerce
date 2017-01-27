@@ -31,6 +31,13 @@
       return $result;
     }
 
+    public function getAll() {
+      $stmt = $this->dbh->prepare("SELECT * FROM products");
+      $stmt->execute();
+      $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+      return $result;
+    }
+
     public function update($id, $name, $image, $description, $price) {
       $stmt = $this->dbh->prepare("UPDATE products SET name=:name, image=:image,
                                    description=:description, price=:price WHERE
