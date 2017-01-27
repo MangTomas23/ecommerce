@@ -18,9 +18,14 @@ include 'header.php';
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="#" class="shopping-cart-icon"><i class="fa fa-shopping-cart"></i></a></li>
+        <li><a href="#">My Account</a></li>
       </ul>
     </div>
   </div>
 </nav>
+
+<div class="container">
+  <h1 class="header-title">PRODUCTS</h1>
+</div>
 
 <?php include 'footer.php'; ?>
