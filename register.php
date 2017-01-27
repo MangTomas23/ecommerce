@@ -17,6 +17,9 @@ if(isset($_POST['btn_register'])) {
   $password = $_POST['password'];
 
   $customer->create($firstname, $lastname, $address, $password, $email, $contact_no);
+  $customer->login($email, $password);
+  $_SESSION['registration_successful'] = true;
+  $customer->redirect('registration_successful.php');
 }
 
 ?>
