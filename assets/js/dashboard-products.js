@@ -48,6 +48,7 @@ $(document).ready( function() {
       success: function(data) {
         console.log(data);
         getAllProducts();
+        $('#add-product-modal').modal('hide');
       }
     })
   });
