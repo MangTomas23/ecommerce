@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'classes/Customer.php';
+require 'Classes/Customer.php';
 
 $customer = new Customer();
 $customer->logout();

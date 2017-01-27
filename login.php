@@ -2,7 +2,7 @@
 $page_title = 'Login';
 include 'header.php';
 session_start();
-require 'classes/Customer.php';
+require 'Classes/Customer.php';
 
 $customer = new Customer();
 if($customer->isLoggedIn()) {
