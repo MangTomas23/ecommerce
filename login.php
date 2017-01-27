@@ -12,7 +12,7 @@ if(isset($_POST['btn_login'])) {
   $email = $_POST['email'];
   $password = $_POST['password'];
   if($customer->login($email, $password)) {
-
+    $customer->redirect('index.php');
   }else {
     $error = 'Invalid email or password';
   }
