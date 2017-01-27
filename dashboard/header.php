@@ -10,3 +10,8 @@
 
   </head>
   <body>
+
+    <div class="container">
+        <?php include 'navbar-side.php' ?>
+        <?php include 'navbar-top.php' ?>
+        <div class="main-container">
