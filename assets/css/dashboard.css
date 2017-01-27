@@ -173,3 +173,43 @@ body {
   font-weight: 600;
   font-size: 16px;
 }
+
+.top-controls {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 34px;
+}
+
+.modal-add-product form {
+  display: flex;
+}
+
+.modal-add-product .product-image{
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-add-product .product-image img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+}
+
+.modal-add-product .product-image .upload-button {
+  margin-top: 12px;
+}
+
+.upload-button input {
+  text-align: center;
+}
+
+.modal-add-product .product-form{
+  flex-grow: 1;
+}
+
+#uploadImage {
+  width: 220px;
+}

@@ -3,6 +3,29 @@ require '../Classes/Product.php';
 
 $product = new Product();
 
+if(isset($_POST['action'])) {
+  switch($_POST['action']) {
+    case 'add':
+      if(!isset($_POST['name'], $_FILES['image'], $_POST['description'],$_POST['price'])) {
+        errorResponse();
+        break;
+      }
+      $name = $_POST['name'];
+      $image = $_FILES['image'];
+      $description = $_POST['description'];
+      $price = $_POST['price'];
+      $target_dir = '../uploads/';
+      $target_file = $target_dir . basename($_FILES["image"]["name"]);
+      $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+      $id = $product->create($name, $description, $price);
+      $target_file = $target_dir . $id . ".$imageFileType";
+
+      move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+      $product->updateImageColumn($id, "$id.$imageFileType");
+      break;
+  }
+}
+
 if(!isset($_GET['action'])) {
   die();
 }
@@ -17,19 +40,6 @@ switch($_GET['action']) {
       break;
     }
     echo json_encode($product->get($_GET['id']));
-    break;
-  case 'add':
-    if(!isset($_GET['name'], $_GET['image'], $_GET['description'],$_GET['price'])) {
-      errorResponse();
-      break;
-    }
-
-    $name = $_GET['name'];
-    $image = $_GET['image'];
-    $description = $_GET['description'];
-    $price = $_GET['price'];
-
-    $product->create($name, $image, $description, $price);
     break;
   case 'delete':
     if(!isset($_GET['id'])) {
