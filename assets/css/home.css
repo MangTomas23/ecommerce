@@ -110,14 +110,18 @@ body {
   display: flex;
 }
 
-.product-details .add-to-cart button i{
+.product-details .add-to-cart button i {
   font-size: 22px;
   padding: 10px;
   background-color: #3d3d3d;
 }
 
+.product-details .add-to-cart button:active i {
+  color: #ffffff !important;
+}
+
 .product-details .add-to-cart button span {
   font-weight: 600;
-  line-height: 44px;
+  line-height: 43px;
   width: 100%;
 }
