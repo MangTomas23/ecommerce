@@ -1,6 +1,3 @@
 <?php
-$page_title = 'Dashboard';
-include 'header.php';
+header('Location: products.php');
 ?>
-      Main Container
-<?php include 'footer.php' ?>
