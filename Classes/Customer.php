@@ -1,6 +1,6 @@
 <?php
   require_once 'Database.php';
-
+  
   class Customer {
 
     public function __construct() {
