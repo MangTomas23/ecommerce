@@ -34,7 +34,7 @@ include 'navbar.php';
     </div>
     <div class="product-quantity">
       <button class="btn btn-default btn-dec" type="button">-</button>
-      <input class="txt-quantity" data-price="{{ price }}" type="text" value="{{ quantity }}">
+      <input class="txt-quantity" data-id="{{ id }}" data-price="{{ price }}" type="text" value="{{ quantity }}">
       <button class="btn btn-default btn-inc" type="button">+</button>
     </div>
   </div>

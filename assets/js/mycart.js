@@ -15,6 +15,7 @@ $(document).ready( function() {
     }).done( function(data) {
       var source = $('#cartItemTemplate').html();
       var template = Handlebars.compile(source);
+      $('.cart-container').empty();
       $.each(JSON.parse(data), function(i, product) {
         product.price = product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         product.quantity = ids[product.id];
@@ -33,10 +34,25 @@ $(document).ready( function() {
   });
 
   function quantity(btn, op) {
+    var cartItems = getCartItems();
     var txtQuantity = $(btn).closest('.product-quantity').find('input');
-    var quantity = parseInt(txtQuantity.val()) + (op === 'inc' ? 1:-1);
+    var quantity = parseInt(txtQuantity.val());
+    if(op==='inc') {
+      quantity++;
+      cartItems.push($(txtQuantity).data('id'));
+    }else{
+      if(quantity == 1) {
+        return;
+      }
+      cartItems.splice(cartItems.indexOf($(txtQuantity).data('id')),1);
+      quantity--;
+    }
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    console.log(cartItems);
+    console.log($(txtQuantity).data('id'));
     txtQuantity.val(quantity);
     computeTotal();
+    setCartBadge();
   }
 
   function computeTotal() {
@@ -53,7 +69,6 @@ $(document).ready( function() {
 
   if(ids.length > 0) {
     loadProducts();
-  }else {
-    $('.total-container').hide();
+    $('.total-container').css({'visibility':'visible'});
   }
 });
