@@ -236,6 +236,30 @@ body {
   align-items: flex-end;
 }
 
+.total-container button {
+  align-self: center;
+}
+
 #txtTotal {
   font-weight: 600;
+}
+
+.btn.checkout {
+  padding: 0;
+  background: #2c7091;
+  color: #ffffff;
+  width: 260px;
+  display: flex;
+}
+
+.btn.checkout i {
+  font-size: 22px;
+  padding: 10px;
+  background-color: #e47f08;
+}
+
+.btn.checkout span {
+  font-weight: 600;
+  line-height: 42px;
+  width: 100%;
 }

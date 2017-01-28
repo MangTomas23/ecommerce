@@ -15,6 +15,10 @@ include 'navbar.php';
   <hr>
   <div class="total-container">
     <p class="total">Total: <span id="txtTotal"></span></p>
+    <button type="button" class="btn btn-default checkout" name="button">
+      <i class="fa fa-credit-card"></i>
+      <span>PROCEED TO CHECKOUT</span>
+    </button>
   </div>
 </div>
 
