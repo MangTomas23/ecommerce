@@ -13,7 +13,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="index.php">Home</a></li>
         <li class="shopping-cart-li">
-          <a href="#" class="shopping-cart-icon">
+          <a href="cart.php" class="shopping-cart-icon">
             <i class="fa fa-shopping-cart"></i>
             <span class="cart-no"></span>
           </a>

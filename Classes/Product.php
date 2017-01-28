@@ -37,6 +37,10 @@
       return $result;
     }
 
+    public function getByIds($ids) {
+
+    }
+
     public function update($id, $name, $image, $description, $price) {
       $stmt = $this->dbh->prepare("UPDATE products SET name=:name, image=:image,
                                    description=:description, price=:price WHERE

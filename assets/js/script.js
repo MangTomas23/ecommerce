@@ -26,6 +26,10 @@ $(document).ready( function() {
     $('.cart-no').text(getCartCount());
   }
 
+
   setCartBadge();
+  window.getCartCount = getCartCount;
+  window.getCartItems = getCartItems;
+  window.setCartBadge = setCartBadge;
 
 });
