@@ -46,8 +46,15 @@ switch($_GET['action']) {
       errorResponse();
       break;
     }
-
     $product->delete($_GET['id']);
+    break;
+  case 'getByIds':
+    if(!isset($_GET['ids'])) {
+      errorResponse();
+      break;
+    }
+
+    echo json_encode($product->getByIds($_GET['ids']));
     break;
   default:
     errorResponse();

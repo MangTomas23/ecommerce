@@ -4,7 +4,6 @@ $(document).ready( function() {
     var cartItems = getCartItems();
     cartItems.push(parseInt($('#productId').text()));
     localStorage.setItem('cart', JSON.stringify(cartItems));
-    console.log(cartItems);
 
     setCartBadge();
     $('.info-box').toggleClass('show');
