@@ -20,6 +20,7 @@ $(document).ready( function() {
         product.quantity = ids[product.id];
         $('.cart-container').append(template(product));
       });
+      computeTotal();
     });
   }
 
@@ -35,6 +36,19 @@ $(document).ready( function() {
     var txtQuantity = $(btn).closest('.product-quantity').find('input');
     var quantity = parseInt(txtQuantity.val()) + (op === 'inc' ? 1:-1);
     txtQuantity.val(quantity);
+    computeTotal();
+  }
+
+  function computeTotal() {
+    var total = 0;
+
+    $.each($('.txt-quantity'), function() {
+      var quantity = parseInt($(this).val());
+      var price = parseFloat($(this).data('price').replace(',', ''));
+      total += quantity * price;
+    });
+
+    $('#txtTotal').text("₱ " + total.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
   }
 
   loadProducts();

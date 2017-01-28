@@ -184,6 +184,7 @@ body {
 .cart-item {
   display: flex;
   flex-direction: row;
+  height: 180px;
 }
 
 .cart-item img{
@@ -227,4 +228,14 @@ body {
   height: 24px;
   width: 45px;
   text-align: center;
+}
+
+.total-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#txtTotal {
+  font-weight: 600;
 }

@@ -5,10 +5,16 @@ include 'navbar.php';
 ?>
 
 <div class="container">
-  <h1 class="header-title">My Cart</h1>
+  <h1 class="header-title">
+    My Cart
+  </h1>
 
   <div class="cart-container">
 
+  </div>
+  <hr>
+  <div class="total-container">
+    <p class="total">Total: <span id="txtTotal"></span></p>
   </div>
 </div>
 
@@ -24,7 +30,7 @@ include 'navbar.php';
     </div>
     <div class="product-quantity">
       <button class="btn btn-default btn-dec" type="button">-</button>
-      <input type="text" value="{{ quantity }}">
+      <input class="txt-quantity" data-price="{{ price }}" type="text" value="{{ quantity }}">
       <button class="btn btn-default btn-inc" type="button">+</button>
     </div>
   </div>
