@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/custom.css">
     <link rel="stylesheet" href="assets/css/home.css">
     <script src="assets/js/jquery-3.1.1.min.js"></script>
+    <script src="assets/js/script.js"></script>
 
   </head>
   <body>

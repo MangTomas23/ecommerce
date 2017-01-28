@@ -44,7 +44,7 @@ include 'navbar.php';
         </tr>
       </table>
       <div class="add-to-cart">
-        <button type="button" class="btn btn-default" name="button">
+        <button id="btnAddToCart" type="button" class="btn btn-default" name="button">
           <i class="fa fa-shopping-cart"></i>
           <span>ADD TO CART</span>
         </button>
