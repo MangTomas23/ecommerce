@@ -55,6 +55,8 @@ $(document).ready( function() {
       }
     }).done( function(data) {
       console.log(data);
+      localStorage.clear();
+      window.location.href = "orders.php";
     });
   });
 
