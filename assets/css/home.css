@@ -153,11 +153,8 @@ body {
   transition: visibility 3s, ease 500ms, opacity 500ms;
 }
 
-
-
 .info-box .info-content {
   width: 180px;
-
   background: #000;
   color: #fff;
   position: absolute;
@@ -165,4 +162,17 @@ body {
   left: -80px;
   text-align: center;
   border-radius: 12px;
+}
+
+.cart-no {
+  background-color: #fa3e3e;
+  border-radius: 2px;
+  color: white;
+  padding: 0px 4px;
+  line-height: 16px;
+  font-size: 10px;
+  font-weight: bold;
+  position: absolute;
+  top: 5px;
+  right: 0;
 }
