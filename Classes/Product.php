@@ -38,7 +38,11 @@
     }
 
     public function getByIds($ids) {
+      $qs = str_repeat("?,", count($ids)-1) . "?";
+      $stmt = $this->dbh->prepare("SELECT * FROM products WHERE id IN ($qs)");
+      $stmt->execute($ids);
 
+      return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function update($id, $name, $image, $description, $price) {
