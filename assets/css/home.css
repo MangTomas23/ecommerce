@@ -70,3 +70,29 @@ body {
 .product-info .product-price {
   color: #cd3838;
 }
+
+.product-details img {
+  width: 280px;
+  height: 400px;
+  object-fit: contain;
+}
+
+.product-details h2 {
+  font-size: 18px;
+
+}
+
+.product-details table {
+  margin-top: 28px;
+}
+
+.product-details table td {
+  padding-bottom: 8px;
+}
+
+.product-details table tr td:first-child {
+  text-align: right;
+  vertical-align: top;
+  padding-right: 12px;
+  color: #6b6b6b;
+}
