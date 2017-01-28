@@ -22,7 +22,7 @@ $(document).ready( function() {
   }
 
   function setCartBadge() {
-    $('.cart-no').text(getCartCount());
+    $('.cart-no').text(getCartCount() || '');
   }
 
 

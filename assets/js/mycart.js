@@ -51,5 +51,9 @@ $(document).ready( function() {
     $('#txtTotal').text("₱ " + total.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
   }
 
-  loadProducts();
+  if(ids.length > 0) {
+    loadProducts();
+  }else {
+    $('.total-container').hide();
+  }
 });

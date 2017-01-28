@@ -10,7 +10,7 @@ include 'navbar.php';
   </h1>
 
   <div class="cart-container">
-
+    You have 0 item in your cart.
   </div>
   <hr>
   <div class="total-container">
