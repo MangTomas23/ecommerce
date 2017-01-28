@@ -236,7 +236,7 @@ body {
   align-items: flex-end;
 }
 
-.total-container button {
+.total-container .btn {
   align-self: center;
 }
 
@@ -262,4 +262,66 @@ body {
   font-weight: 600;
   line-height: 42px;
   width: 100%;
+}
+
+.checkout-item {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  margin: 24px 0;
+}
+
+.checkout-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.checkout-item table {
+  display: block;
+  height: 100px;
+  flex-grow: 1;
+  max-width: 300px;
+  overflow: hidden;
+}
+
+.checkout-item table tr td {
+  padding: 0px;
+}
+
+.checkout-item table tr td:first-child {
+  padding-right: 22px;
+  vertical-align: top;
+}
+
+.checkout-item .quantity {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout-item .total {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.btn-continue {
+}
+
+.customer-info p {
+  margin: 0;
+}
+
+.customer-info #txtTotal {
+  font-size: 20px;
+}
+
+.customer-info .total {
+  margin-top: 10px;
 }
