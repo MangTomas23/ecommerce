@@ -2,6 +2,7 @@
 $page_title = 'Checkout';
 include 'header.php';
 include 'navbar.php';
+include 'authenticated.php';
 ?>
 
 <div class="container">
@@ -14,12 +15,15 @@ include 'navbar.php';
     </div>
     <div class="col-md-4">
       <div class="customer-info">
-        <p>Full Name: </p>
-        <p>Address: </p>
-        <p>Contact No: </p>
+        <?php
+          $c = $customer->get($_SESSION['user_session']);
+        ?>
+        <p>Full Name: <?php echo "$c->firstname $c->lastname" ?></p>
+        <p>Address: <?php echo $c->address ?></p>
+        <p>Contact No: <?php echo $c->contact_no ?></p>
         <p class="total">Total: <span id="txtTotal"></span></p>
       </div>
-      <a class="btn btn-default continue" href="#">CONTINUE</a>
+      <a class="btn btn-primary continue" href="#">CONTINUE</a>
     </div>
   </div>
 </div>
@@ -48,7 +52,7 @@ include 'navbar.php';
     <div class="quantity">
       x {{ quantity }}
     </div>
-    <div class="total">₱ <span class="ind-total">{{ total }}</span></div>
+    <div class="total">₱  <span class="ind-total">{{ total }}</span></div>
   </div>
 </script>
 

@@ -311,7 +311,9 @@ body {
 }
 
 
-.btn-continue {
+.btn.continue {
+  width: 290px;
+  margin-top: 24px;
 }
 
 .customer-info p {
@@ -324,4 +326,6 @@ body {
 
 .customer-info .total {
   margin-top: 10px;
+  border-top: 2px solid #ccc;
+  padding-top: 12px;
 }
