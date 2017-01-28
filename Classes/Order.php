@@ -51,15 +51,16 @@
 
     public function getAll() {
       try {
-        $stmt = $this->dbh->prepare("SELECT * FROM orders");
+        $stmt = $this->dbh->prepare("SELECT * FROM orders ORDER BY id DESC");
         $stmt->execute();
 
         $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach($orders as $i => $order) {
-          $stmt = $this->dbh->prepare("SELECT * FROM customers WHERE id=:customer_id");
+          $stmt = $this->dbh->prepare("SELECT firstname,lastname FROM customers
+                                       WHERE id=:customer_id");
           $stmt->bindParam(':customer_id', $order['customer_id']);
           $stmt->execute();
-          $items[$i]['customer'] = $stmt->fetchAll(PDO::FETCH_OBJ);
+          $orders[$i]['customer'] = $stmt->fetch(PDO::FETCH_OBJ);
         }
 
         return $orders;

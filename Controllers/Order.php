@@ -11,6 +11,11 @@ switch($_GET['action']) {
   case 'add':
     $order->create($_GET['user_id'], $_GET['total_price'], $_GET['items']);
     break;
+  case 'getall':
+    echo json_encode($order->getAll());
+    break;
+  case 'get':
+
   default:
     echo json_encode(['error' => 'invalid request']);
     break;
