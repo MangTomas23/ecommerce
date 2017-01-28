@@ -43,6 +43,12 @@ include 'navbar.php';
           <td><?php echo $p->description ?></td>
         </tr>
       </table>
+      <div class="add-to-cart">
+        <button type="button" class="btn btn-default" name="button">
+          <i class="fa fa-shopping-cart"></i>
+          <span>ADD TO CART</span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
