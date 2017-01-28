@@ -48,6 +48,25 @@
         echo $e->getMessage();
       }
     }
+
+    public function getAll() {
+      try {
+        $stmt = $this->dbh->prepare("SELECT * FROM orders");
+        $stmt->execute();
+
+        $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach($orders as $i => $order) {
+          $stmt = $this->dbh->prepare("SELECT * FROM customers WHERE id=:customer_id");
+          $stmt->bindParam(':customer_id', $order['customer_id']);
+          $stmt->execute();
+          $items[$i]['customer'] = $stmt->fetchAll(PDO::FETCH_OBJ);
+        }
+
+        return $orders;
+      }catch(PDOException $e) {
+        echo $e->getMessage();
+      }
+    }
   }
 
 ?>
