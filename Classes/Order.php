@@ -1,14 +1,12 @@
 <?php
   require_once 'Database.php';
   require_once 'OrderItem.php';
-  require_once 'Product.php';
 
   class Order {
 
     public function __construct() {
       $db = Database::getInstance();
       $this->dbh = $db->getConnection();
-      $this->product = new Product();
     }
 
     public function create($customer_id, $total_price, $items) {
@@ -39,7 +37,10 @@
 
         $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach($items as $i => $item) {
-          $items[$i]['product'] = $this->product->get($item['product_id']);
+          $stmt = $this->dbh->prepare("SELECT * FROM products WHERE id=:id");
+          $stmt->bindParam(':id', $item['product_id']);
+          $stmt->execute();
+          $items[$i]['product'] = $stmt->fetch(PDO::FETCH_OBJ);
         }
 
         return $items;
