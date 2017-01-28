@@ -1,5 +1,5 @@
 <?php
-require 'Classes/Customer.php';
+require_once 'Classes/Customer.php';
 
 $customer = new Customer();
 
