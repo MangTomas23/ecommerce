@@ -1,6 +1,6 @@
 <?php
   require_once 'Database.php';
-  
+
   class Customer {
 
     public function __construct() {
@@ -80,6 +80,18 @@
 
     public function redirect($url) {
       header("Location: $url");
+    }
+
+    public function getOrders($id) {
+      try {
+        $stmt = $this->dbh->prepare("SELECT * FROM orders WHERE customer_id=:id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+      }catch(PDOException $e) {
+        $e.getMessage();
+      }
     }
   }
 
