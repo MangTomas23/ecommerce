@@ -33,7 +33,30 @@ $(document).ready( function() {
     });
 
     $('#txtTotal').text("₱ " + total.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+    return total;
   }
+
+  $('#btnContinue').on('click', function() {
+    var items = [];
+    $.each($.unique(getCartItems()), function(i,v) {
+      items.push({
+        product_id: v,
+        quantity: ids[v]
+      });
+    });
+
+    $.ajax({
+      url: 'Controllers/Order.php',
+      data: {
+        action: 'add',
+        user_id: $('#userId').data('userid'),
+        total_price: computeTotal(),
+        items: JSON.stringify(items)
+      }
+    }).done( function(data) {
+      console.log(data);
+    });
+  });
 
   loadProducts();
 });

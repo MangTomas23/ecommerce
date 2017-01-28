@@ -5,6 +5,7 @@ include 'navbar.php';
 include 'authenticated.php';
 ?>
 
+<div id="userId" data-userid="<?php echo $_SESSION['user_session'] ?>"></div>
 <div class="container">
   <h1 class="header-title">Checkout</h1>
   <div class="checkout-container">
@@ -23,7 +24,7 @@ include 'authenticated.php';
         <p>Contact No: <?php echo $c->contact_no ?></p>
         <p class="total">Total: <span id="txtTotal"></span></p>
       </div>
-      <a class="btn btn-primary continue" href="#">CONTINUE</a>
+      <a id="btnContinue" class="btn btn-primary continue" href="#">CONTINUE</a>
     </div>
   </div>
 </div>
