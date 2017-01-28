@@ -84,7 +84,8 @@
 
     public function getOrders($id) {
       try {
-        $stmt = $this->dbh->prepare("SELECT * FROM orders WHERE customer_id=:id");
+        $stmt = $this->dbh->prepare("SELECT * FROM orders WHERE customer_id=:id
+                                     ORDER BY id DESC");
         $stmt->bindParam(':id', $id);
         $stmt->execute();
 
