@@ -316,6 +316,10 @@ body {
   margin-top: 24px;
 }
 
+.customer-info {
+  margin-top: 18px; 
+}
+
 .customer-info p {
   margin: 0;
 }
