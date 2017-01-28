@@ -26,7 +26,7 @@ include 'navbar.php';
       <table>
         <tr>
           <td>ID:</td>
-          <td><?php echo $p->id ?></td>
+          <td id="productId"><?php echo $p->id ?></td>
         </tr>
         <tr>
           <td>Product Name</td>
