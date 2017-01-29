@@ -29,20 +29,8 @@ require '../Classes/Order.php';
         </button>
         <h4 class="modal-title">ORDER DETAILS</h4>
       </div>
-      <div class="modal-body">
-        <div class="customer-info row">
-          <div class="col-md-8">
-            <p>Full Name: Adrian Matos</p>
-            <p>Address: Concepcion Grande Naga City</p>
-            <p>Email Address: matos.adrianpaul@gmail.com</p>
-            <p>Contact No: </p>
-          </div>
-          <div class="col-md-4">
-            <p>Total: 12,989.12</p>
-            <p></p>
-            <p></p>
-          </div>
-        </div>
+      <div class="order-info modal-body">
+
       </div>
       <div class="modal-footer">
 
@@ -51,8 +39,27 @@ require '../Classes/Order.php';
   </div>
 </div>
 
+<script id="customerInfoTemplate" type="text/x-handlebars-template">
+  <div class="customer-info row">
+    <div class="col-xs-8">
+      <p>Full Name: {{ customer.firstname }} {{ customer.lastname }}</p>
+      <p>Address: {{ customer.address }}</p>
+      <p>Email Address: {{ customer.email }}</p>
+      <p>Contact No: {{ customer.contact_no }}</p>
+    </div>
+    <div class="col-xs-4">
+      <p>Total: {{ total_price }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="order-items-list">
+
+    </div>
+  </div>
+</script>
+
 <script id="rowTemplate" type="text/x-handlebars-template">
-  <tr>
+  <tr data-id="{{ id }}">
     <td>{{ id }}</td>
     <td>{{ customer.firstname }} {{ customer.lastname }}</td>
     <td>{{ total_price }}</td>
@@ -60,6 +67,37 @@ require '../Classes/Order.php';
   </tr>
 </script>
 
+<script id="orderItemsTemplate" type="text/x-handlebars-template">
+  <div class="order-item row">
+    <div class="col-xs-2">
+      <img src="../uploads/14.jpg" />
+    </div>
+    <div class="col-xs-5">
+      <table>
+        <tbody>
+          <tr>
+            <td>ID:</td>
+            <td>{{ product.id }}</td>
+          </tr>
+          <tr>
+            <td>Product Name:</td>
+            <td>{{ product.name }}</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>{{ product.price }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-2 quantity">
+      x {{ quantity }}
+    </div>
+    <div class="col-xs-3 total">
+      {{ product.total }}
+    </div>
+  </div>
+</script>
 <script src="../assets/js/dashboard-orders.js"></script>
 <?php
 $order = new Order();

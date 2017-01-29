@@ -16,8 +16,27 @@ $(document).ready( function() {
     });
   }
 
-  $(document.body).on('click', 'tbody tr', function() {
+  $(document.body).on('click', '.order-table tbody tr', function() {
     $('#orderModal').modal('show');
+    $.ajax({
+      url: '../Controllers/Order.php',
+      data: {
+        action: 'get',
+        id: $(this).data('id')
+      }
+    }).done( function(data) {
+      data = $.parseJSON(data);
+      $('.order-info.modal-body').empty();
+      var template = Handlebars.compile($('#customerInfoTemplate').html());
+      $('.order-info.modal-body').append(template(data));
+
+      $.each(data.items, function(i, item) {
+        template = Handlebars.compile($('#orderItemsTemplate').html());
+        item.product.total = item.quantity * item.product.price;
+        $('.order-items-list').append(template(item));
+      });
+      console.log(data);
+    });
   });
 
   loadOrders();

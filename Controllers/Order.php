@@ -15,7 +15,9 @@ switch($_GET['action']) {
     echo json_encode($order->getAll());
     break;
   case 'get':
-    echo json_encode($order->get(12));
+    if(isset($_GET['id'])) {
+      echo json_encode($order->get($_GET['id']));
+    }
     break;
   default:
     echo json_encode(['error' => 'invalid request']);

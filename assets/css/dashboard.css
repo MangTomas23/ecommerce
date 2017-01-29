@@ -229,3 +229,37 @@
 #orderModal .customer-info p{
   margin: 0;
 }
+
+.order-items-list {
+  margin-top: 24px;
+}
+
+.order-items-list img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-left: 18px;
+}
+
+.order-items-list table {
+  height: 100px;
+}
+
+.order-items-list table tr td:first-child {
+  padding-right: 14px;
+  text-align: right;
+}
+
+.order-items-list .quantity {
+  line-height: 100px;
+  text-align: center;
+}
+
+.order-items-list .total {
+  line-height: 100px;
+  text-align: center;
+}
+
+.order-items-list .order-item {
+  margin-bottom: 24px;
+}
