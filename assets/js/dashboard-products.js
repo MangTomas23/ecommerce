@@ -56,10 +56,23 @@ $(document).ready( function() {
       success: function(data) {
         console.log(data);
         getAllProducts();
+        clearForm();
         $('#add-product-modal').modal('hide');
       }
     })
   });
+
+  function clearForm() {
+    var formInputs = $('#frmAddProduct input');
+    console.log(formInputs);
+    $.each(formInputs, function() {
+      $(this).val('');
+    })
+    $('#frmAddProduct img').attr('src', '../assets/img/placeholder-image.png');
+    $('#frmAddProduct textarea').val('');
+  }
+
+  window.clearForm = clearForm;
 
   $(document.body).on('click', '.product-container', function() {
     $.ajax({
