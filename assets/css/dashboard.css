@@ -12,12 +12,13 @@
   background-color: #2a3f54;
 }
 
-.site_title {
+.site_title, .site_title:hover {
   font-weight: 400;
   color: #ecf0f1;
   font-size: 22px;
   line-height: 59px;
   padding: 10px;
+  text-decoration: none !important;
 }
 
 .profile {

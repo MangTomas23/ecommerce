@@ -19,6 +19,12 @@ switch($_GET['action']) {
       echo json_encode($order->get($_GET['id']));
     }
     break;
+  case 'changestatus':
+    $id = $_GET['id'];
+    $status = $_GET['status'];
+
+    $order->changeStatus($id, $status);
+    break;
   default:
     echo json_encode(['error' => 'invalid request']);
     break;

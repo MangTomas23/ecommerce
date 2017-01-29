@@ -1,5 +1,5 @@
 <div class="col-md-3 left-col">
-    <a href="#" class="site_title">
+    <a href="index.php" class="site_title">
       <i class="fa fa-shopping-cart"></i>
       <span>Site Title</span>
     </a>

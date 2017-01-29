@@ -6,12 +6,13 @@ $(document).ready( function() {
         action: 'getall'
       }
     }).done( function(data) {
+      $('.order-table tbody').empty();
       $.each($.parseJSON(data), function(i, order) {
         var source = $('#rowTemplate').html();
         var template = Handlebars.compile(source);
 
         order.total_price = order.total_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        $('table tbody').append(template(order));
+        $('.order-table tbody').append(template(order));
       })
     });
   }
@@ -40,8 +41,19 @@ $(document).ready( function() {
   });
 
   $(document.body).on('click', '#btnUpdateStatus', function() {
-    
-    console.log($(this).data('id'));
+    var id = $(this).data('id');
+    var status = $(this).closest('p').find('select').val();
+
+    $.ajax({
+      url: '../Controllers/Order.php',
+      data: {
+        action: 'changestatus',
+        id, status
+      }
+    }).done( function(data) {
+      loadOrders();
+      $('#orderModal').modal('hide');
+    });
   });
 
   window.Handlebars.registerHelper('select', function( value, options ){
