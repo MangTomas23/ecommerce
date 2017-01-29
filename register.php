@@ -16,10 +16,14 @@ if(isset($_POST['btn_register'])) {
   $email = $_POST['email'];
   $password = $_POST['password'];
 
-  $customer->create($firstname, $lastname, $address, $password, $email, $contact_no);
-  $customer->login($email, $password);
-  $_SESSION['registration_successful'] = true;
-  $customer->redirect('registration_successful.php');
+  if($customer->isEmailExists($email)) {
+    $error = 'Email already exists';
+  }else{
+    $customer->create($firstname, $lastname, $address, $password, $email, $contact_no);
+    $customer->login($email, $password);
+    $_SESSION['registration_successful'] = true;
+    $customer->redirect('registration_successful.php');
+  }
 }
 
 ?>
@@ -61,6 +65,11 @@ if(isset($_POST['btn_register'])) {
       <button class="login-button" type="submit" name="btn_register" title="Submit">
         <i class="fa fa-chevron-right"></i>
       </button>
+      <?php
+        if(isset($error)) {
+      ?>
+        <p class="error-text">Email already exist!</p>
+      <?php } ?>
     </form>
     <div class="login-form-footer">
       <p>

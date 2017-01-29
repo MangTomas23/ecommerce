@@ -91,7 +91,19 @@
 
         return $stmt->fetchAll(PDO::FETCH_OBJ);
       }catch(PDOException $e) {
-        $e.getMessage();
+        echo $e.getMessage();
+      }
+    }
+
+    public function isEmailExists($email) {
+      try {
+        $stmt = $this->dbh->prepare('SELECT * FROM customers WHERE email=:email');
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+
+        return $stmt->rowCount();
+      }catch(PDOException $e) {
+        echo $e->getMessage();
       }
     }
   }
