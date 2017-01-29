@@ -19,15 +19,23 @@ $(document).ready( function() {
     });
   }
 
-  $('#uploadImage').on('change', function() {
+  function previewImage(input, img) {
     if(typeof(FileReader) != "undefined") {
       var reader = new FileReader();
       reader.onload = function(e) {
-        $('.modal-add-product .product-image img').attr('src', e.target.result);
+        $(img).attr('src', e.target.result);
       }
 
-      reader.readAsDataURL($(this)[0].files[0]);
+      reader.readAsDataURL($(input)[0].files[0]);
     }
+  }
+
+  $('#uploadImage').on('change', function() {
+    previewImage($(this), $('.modal-add-product .product-image img'));
+  });
+
+  $(document.body).on('change','#btnUpdateImage', function() {
+    previewImage($(this), $('#productModal img'));
   });
 
   $('#btnAddProductSave').on('click', function() {
@@ -65,9 +73,34 @@ $(document).ready( function() {
       modal.empty();
       var template = Handlebars.compile($('#productModalTemplate').html());
       modal.append(template($.parseJSON(data)));
-      console.log(data);
     });
 
     $('#productModal').modal('show');
+  });
+
+  $(document.body).on('submit', '#productModalForm', function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+    formData.append('action', 'update');
+    formData.append('id', $(this).data('id'));
+    $.ajax({
+      url: '../Controllers/Product.php',
+      type: 'post',
+      data: formData,
+      contentType: false,
+      cache: false,
+      processData: false,
+      success: function(data) {
+        getAllProducts();
+        setTimeout(function() {
+          getAllProducts();
+        }, 5000);
+      }
+    });
+  });
+
+  $('#btnUpdate').on('click', function() {
+    $('#productModalForm').submit();
+    $('#productModal').modal('hide');
   });
 });

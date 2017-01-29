@@ -279,4 +279,26 @@
   margin-left: auto;
   margin-right: auto;
   display: block;
+  object-fit: contain;
+}
+
+.btn-image-update {
+  margin-top: 24px;
+  text-align: center;
+}
+
+p.status {
+  display: flex;
+  align-items: center;
+}
+
+.status select {
+  height: 25px;
+  font-size: 12px;
+  margin: 0px 8px;
+}
+
+.status button {
+  height: 25px;
+  font-size: 12px;
 }

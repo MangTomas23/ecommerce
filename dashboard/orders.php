@@ -49,6 +49,16 @@ require '../Classes/Order.php';
     </div>
     <div class="col-xs-4">
       <p>Total: {{ total_price }}</p>
+      <p class="status">Status:
+        <select>
+          {{#select status}}
+          <option value="IN PROCESS">IN PROCESS</option>
+          <option value="PROCESSING">PROCESSING</option>
+          <option value="COMPLETED">COMPLETED</option>
+          {{/select}}
+        </select>
+        <button id="btnUpdateStatus" data-id="{{ id }}">Update</button>
+      </p>
     </div>
   </div>
   <div class="row">

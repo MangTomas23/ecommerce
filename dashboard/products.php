@@ -53,7 +53,6 @@ include 'header.php';
       </div>
     </div>
   </div>
-
 </div>
 
 <div id="productModal" class="modal fade">
@@ -69,7 +68,7 @@ include 'header.php';
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" name="button">Update</button>
+        <button id="btnUpdate" type="button" class="btn btn-primary" name="button">Update</button>
       </div>
     </div>
   </div>
@@ -91,23 +90,26 @@ include 'header.php';
 
 <script id="productModalTemplate" type="text/x-handlebars-template">
   <div class="row">
-    <div class="col-sm-6">
-      <img src="../uploads/14.jpg" alt="" />
-    </div>
-    <div class="col-sm-6">
-      <div class="form-group">
-        <label>Product Name:</label>
-        <input type="text" class="form-control" name="name" value="{{ name }}">
+    <form id="productModalForm" data-id="{{ id }}">
+      <div class="col-sm-6">
+        <img src="../uploads/{{ image }}" alt="" />
+        <input id="btnUpdateImage" class="btn-image-update" type="file" name="image">
       </div>
-      <div class="form-group">
-        <label>Price:</label>
-        <input type="text" class="form-control" name="price" value="{{ price }}">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Product Name:</label>
+          <input type="text" class="form-control" name="name" value="{{ name }}">
+        </div>
+        <div class="form-group">
+          <label>Price:</label>
+          <input type="text" class="form-control" name="price" value="{{ price }}">
+        </div>
+        <div class="form-group">
+          <label>Description:</label>
+          <textarea name="description" class="form-control">{{ description }}</textarea>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Description:</label>
-        <textarea name="description" class="form-control">{{ description }}</textarea>
-      </div>
-    </div>
+    </form>
   </div>
 </script>
 

@@ -39,5 +39,15 @@ $(document).ready( function() {
     });
   });
 
+  $(document.body).on('click', '#btnUpdateStatus', function() {
+    
+    console.log($(this).data('id'));
+  });
+
+  window.Handlebars.registerHelper('select', function( value, options ){
+        var $el = $('<select />').html( options.fn(this) );
+        $el.find('[value="' + value + '"]').attr({'selected':'selected'});
+        return $el.html();
+    });
   loadOrders();
 });

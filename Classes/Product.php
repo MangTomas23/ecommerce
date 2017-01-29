@@ -45,13 +45,12 @@
       return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function update($id, $name, $image, $description, $price) {
-      $stmt = $this->dbh->prepare("UPDATE products SET name=:name, image=:image,
+    public function update($id, $name, $description, $price) {
+      $stmt = $this->dbh->prepare("UPDATE products SET name=:name,
                                    description=:description, price=:price WHERE
                                    id=:id");
       $stmt->bindParam(':id', $id);
       $stmt->bindParam(':name', $name);
-      $stmt->bindParam(':image', $image);
       $stmt->bindParam(':description', $description);
       $stmt->bindParam(':price', $price);
 

@@ -23,6 +23,24 @@ if(isset($_POST['action'])) {
       move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
       $product->updateImageColumn($id, "$id.$imageFileType");
       break;
+    case 'update':
+      $id = $_POST['id'];
+      $name = $_POST['name'];
+      $image = $_FILES['image'];
+      $description = $_POST['description'];
+      $price = $_POST['price'];
+      $p = $product->get($id);
+      if($_FILES['image']['name'] !== '') {
+        $target_dir = '../uploads/';
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        $target_file = $target_dir . $id . ".$imageFileType";
+        unlink("../uploads/$p->image");
+        move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+        $product->updateImageColumn($id, "$id.$imageFileType");
+      }
+      $product->update($id, $name, $description,$price);
+      break;
   }
 }
 

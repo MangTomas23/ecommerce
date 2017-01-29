@@ -89,6 +89,18 @@
         echo $e->getMessage();
       }
     }
+
+    public function changeStatus($id, $status) {
+      try {
+        $stmt = $this->dbh->prepare("UPDATE orders SET status=:status WHERE
+                                     id=:id");
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':status', $status);
+        $stmt->execute();
+      }catch(PDOException $e) {
+        echo $e->getMessage();
+      }
+    }
   }
 
 ?>
