@@ -10,8 +10,15 @@ include 'authenticated.php';
   <?php
     require 'Classes/Order.php';
     $order = new Order();
-
-    foreach($customer->getOrders($_SESSION['user_session']) as $i => $o) {
+    $orders = $customer->getOrders($_SESSION['user_session']);
+    if(!$orders) {
+  ?>
+    <p>
+      You have no orders yet.
+    </p>
+  <?php
+    }
+    foreach($orders as $i => $o) {
   ?>
     <div class="order-item">
       <div class="header">
