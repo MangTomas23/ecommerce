@@ -108,6 +108,7 @@ body {
   color: #ffffff;
   width: 180px;
   display: flex;
+  margin-bottom: 48px;
 }
 
 .product-details .add-to-cart button i {

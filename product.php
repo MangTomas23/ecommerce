@@ -9,6 +9,9 @@ if(!isset($_GET['id'])) {
 }
 
 $p = $product->get($_GET['id']);
+if(!$p) {
+  $customer->redirect('index.php');
+}
 $page_title = $p->name;
 include 'header.php';
 include 'navbar.php';

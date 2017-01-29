@@ -80,7 +80,7 @@ require '../Classes/Order.php';
 <script id="orderItemsTemplate" type="text/x-handlebars-template">
   <div class="order-item row">
     <div class="col-xs-2">
-      <img src="../uploads/14.jpg" />
+      <img src="../uploads/{{ product.image }}" />
     </div>
     <div class="col-xs-5">
       <table>
