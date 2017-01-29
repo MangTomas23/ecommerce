@@ -1,4 +1,19 @@
-<?php session_start() ?>
+<?php
+session_start();
+if(!isset($_SESSION['merchant_session'])) {
+  header('Location: login.php');
+}
+
+require '../Classes/Database.php';
+$db = Database::getInstance();
+$dbh = $db->getConnection();
+
+$stmt = $dbh->prepare("SELECT * FROM merchants WHERE id=:id");
+$stmt->bindParam(':id', $_SESSION['merchant_session']);
+$stmt->execute();
+
+$merchant = $stmt->fetch(PDO::FETCH_OBJ);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

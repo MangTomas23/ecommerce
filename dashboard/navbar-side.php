@@ -9,7 +9,7 @@
       </div>
       <div class="profile_info">
         <span>Welcome, </span>
-        <h2>Merchant User</h2>
+        <h2><?php echo "$merchant->firstname $merchant->lastname" ?></h2>
       </div>
     </div>
     <div class="sidebar_menu">
