@@ -12,8 +12,8 @@ $(document).ready( function() {
     }).done( function(data) {
       var source = $('#product-container-template').html();
       var template = Handlebars.compile(source);
-
       $.each($.parseJSON(data), function(i, product) {
+        product.price = formatNumber(product.price);
         $('.product-list').append(template(product));
       });
     });
@@ -51,5 +51,23 @@ $(document).ready( function() {
         $('#add-product-modal').modal('hide');
       }
     })
+  });
+
+  $(document.body).on('click', '.product-container', function() {
+    $.ajax({
+      url: '../Controllers/Product.php',
+      data: {
+        action: 'get',
+        id: $(this).data('id')
+      }
+    }).done( function(data) {
+      var modal = $('#productModal .modal-body');
+      modal.empty();
+      var template = Handlebars.compile($('#productModalTemplate').html());
+      modal.append(template($.parseJSON(data)));
+      console.log(data);
+    });
+
+    $('#productModal').modal('show');
   });
 });

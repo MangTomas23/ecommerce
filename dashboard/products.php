@@ -56,15 +56,56 @@ include 'header.php';
 
 </div>
 
+<div id="productModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" name="button" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+        <h4 class="modal-title">Product Details</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" name="button">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script id="product-container-template" type="text/x-handlebars-template">
   <div class="col-md-3 col-sm-6">
-    <div class="product-container">
+    <div class="product-container" data-id="{{ id }}">
       <div class="product-image">
         <img src="../uploads/{{ image }}" alt="" />
       </div>
       <div class="product-info">
         <p class="product-name">{{ name }}</p>
         <p class="product-price">₱ {{ price }}</p>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="productModalTemplate" type="text/x-handlebars-template">
+  <div class="row">
+    <div class="col-sm-6">
+      <img src="../uploads/14.jpg" alt="" />
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label>Product Name:</label>
+        <input type="text" class="form-control" name="name" value="{{ name }}">
+      </div>
+      <div class="form-group">
+        <label>Price:</label>
+        <input type="text" class="form-control" name="price" value="{{ price }}">
+      </div>
+      <div class="form-group">
+        <label>Description:</label>
+        <textarea name="description" class="form-control">{{ description }}</textarea>
       </div>
     </div>
   </div>

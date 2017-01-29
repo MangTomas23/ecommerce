@@ -25,10 +25,14 @@ $(document).ready( function() {
     $('.cart-no').text(getCartCount() || '');
   }
 
+  function formatNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
 
   setCartBadge();
   window.getCartCount = getCartCount;
   window.getCartItems = getCartItems;
   window.setCartBadge = setCartBadge;
+  window.formatNumber = formatNumber;
 
 });
