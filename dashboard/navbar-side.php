@@ -26,12 +26,6 @@
             <span>Orders</span>
           </a>
         </li>
-        <li>
-          <a href="customers.php">
-            <i class="fa fa-user "></i>
-            <span>Customers</span>
-          </a>
-        </li>
       </ul>
     </div>
 </div>
