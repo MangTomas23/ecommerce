@@ -68,14 +68,24 @@ include 'header.php';
 
       </div>
       <div class="modal-footer">
-        <button id="btnUpdate" type="button" class="btn btn-primary" name="button">Update</button>
+        <div class="col-sm-6 text-left">
+          <button id="btnDelete" type="button" class="btn btn-danger" name="button">Delete</button>
+          <div class="delete-confirmation">
+            <span>Are you sure you want to delete this product?</span>
+            <button id="btnYes" type="button" class="btn btn-danger btn-sm">Yes</button>
+            <button id="btnNo" type="button" class="btn btn-default btn-sm">No</button>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <button id="btnUpdate" type="button" class="btn btn-primary" name="button">Update</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <script id="product-container-template" type="text/x-handlebars-template">
-  <div class="col-md-3 col-sm-6">
+  <div class="col-lg-3 col-md-4 col-sm-6">
     <div class="product-container" data-id="{{ id }}">
       <div class="product-image">
         <img src="../uploads/{{ image }}" alt="" />

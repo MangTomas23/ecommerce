@@ -72,8 +72,6 @@ $(document).ready( function() {
     $('#frmAddProduct textarea').val('');
   }
 
-  window.clearForm = clearForm;
-
   $(document.body).on('click', '.product-container', function() {
     $.ajax({
       url: '../Controllers/Product.php',
@@ -116,4 +114,37 @@ $(document).ready( function() {
     $('#productModalForm').submit();
     $('#productModal').modal('hide');
   });
+
+  $('#btnDelete').on('click', function() {
+    var btnYes = $('#btnYes');
+    var btnNo = $('#btnNo');
+    var btnDelete = $(this);
+    var deleteConfirmation = $('.delete-confirmation');
+    $(btnDelete).hide();
+    deleteConfirmation.show();
+
+    btnNo.unbind().on('click', function() {
+      deleteConfirmation.hide();
+      btnDelete.show();
+    });
+
+    btnYes.unbind().on('click', function() {
+      var id = $('#productModalForm').data('id');
+      $.ajax({
+        url: '../Controllers/Product.php',
+        data: {
+          action: 'delete',
+          id
+        }
+      }).done(function(data){
+        getAllProducts();
+      });
+      $('#productModal').modal('hide');
+    });
+  });
+
+  $('#productModal').on('hidden.bs.modal', function() {
+    $('.delete-confirmation').hide();
+    $('#btnDelete').show();
+  });;
 });

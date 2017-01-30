@@ -36,8 +36,8 @@
         $stmt->execute();
 
         $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $this->dbh->prepare("SELECT * FROM products WHERE id=:id");
         foreach($items as $i => $item) {
-          $stmt = $this->dbh->prepare("SELECT * FROM products WHERE id=:id");
           $stmt->bindParam(':id', $item['product_id']);
           $stmt->execute();
           $items[$i]['product'] = $stmt->fetch(PDO::FETCH_OBJ);

@@ -41,6 +41,10 @@ if(isset($_POST['action'])) {
       }
       $product->update($id, $name, $description,$price);
       break;
+    case 'delete':
+      $id = $_POST['id'];
+      $product->delete($id);
+      break;
   }
 }
 
