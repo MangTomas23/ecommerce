@@ -31,7 +31,7 @@ include 'authenticated.php';
 
 <script id="checkoutItemTemplate" type="text/x-handlebars-template">
   <div class="checkout-item">
-    <img src="uploads/14.jpg" alt="" />
+    <img src="uploads/{{ image }}" alt="" />
     <table>
       <tr>
         <td>Product ID:</td>
