@@ -25,7 +25,9 @@ $product = new Product();
           </div>
           <div class="product-info">
             <p class="product-name"><?php echo $p->name ?></p>
-            <p class="product-price"><?php echo $p->price ?></p>
+            <p class="product-price">
+              ₱ <?php echo number_format($p->price,2,'.',',') ?>
+            </p>
           </div>
         </a>
       </div>
