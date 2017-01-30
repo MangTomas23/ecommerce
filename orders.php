@@ -30,18 +30,31 @@ include 'authenticated.php';
           foreach($order->getItems($o->id) as $i => $itm) {
         ?>
           <div class="item-container">
-            <img src="uploads/<?php echo $itm['product']->image ?>" alt="" />
-            <div class="product-details">
-              <p><?php echo $itm['product']->name ?></p>
-              <p>₱ <?php echo number_format($itm['product']->price,2,'.',',') ?></p>
-              <p><?php echo $itm['product']->description ?></p>
-            </div>
-            <p class="quantity">
-              x <?php echo $itm['quantity'] ?>
-            </p>
-            <p class="price">
-              ₱ <?php echo number_format($itm['quantity'] * $itm['product']->price,2,'.',',') ?>
-            </p>
+            <?php if($itm['product_id'] != '') {?>
+              <img src="uploads/<?php echo $itm['product']->image ?>" alt="" />
+              <div class="product-details">
+                <p><?php echo $itm['product']->name ?></p>
+                <p>₱ <?php echo number_format($itm['product']->price,2,'.',',') ?></p>
+                <p><?php echo $itm['product']->description ?></p>
+              </div>
+              <p class="quantity">
+                x <?php echo $itm['quantity'] ?>
+              </p>
+              <p class="price">
+                ₱ <?php echo number_format($itm['quantity'] * $itm['product']->price,2,'.',',') ?>
+              </p>
+            <?php }else{ ?>
+              <img src="assets/img/placeholder-image.png" alt="" />
+              <div class="product-details">
+                <p style="line-height: 100px; margin-left: 12px">Product information could not retrieve.</p>
+              </div>
+              <p class="quantity">
+                x <?php echo $itm['quantity'] ?>
+              </p>
+              <p class="price">
+                ₱ 0.00
+              </p>
+            <?php } ?>
           </div>
         <?php } ?>
       </div>
