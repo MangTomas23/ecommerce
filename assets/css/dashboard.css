@@ -288,10 +288,10 @@
   text-align: center;
 }
 
-p.status {
+/*p.status {
   display: flex;
   align-items: center;
-}
+}*/
 
 .status select {
   height: 25px;
