@@ -11,7 +11,7 @@ $(document).ready( function() {
         var source = $('#rowTemplate').html();
         var template = Handlebars.compile(source);
 
-        order.total_price = order.total_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        order.total_price = formatNumber(order.total_price);
         $('.order-table tbody').append(template(order));
       })
     });
@@ -29,14 +29,18 @@ $(document).ready( function() {
       data = $.parseJSON(data);
       $('.order-info.modal-body').empty();
       var template = Handlebars.compile($('#customerInfoTemplate').html());
+      data.total_price = formatNumber(data.total_price);
       $('.order-info.modal-body').append(template(data));
 
       $.each(data.items, function(i, item) {
-        template = Handlebars.compile($('#orderItemsTemplate').html());
-        item.product.total = item.quantity * item.product.price;
+        if(item.product_id != null) {
+          template = Handlebars.compile($('#orderItemsTemplate').html());
+        }else {
+          template = Handlebars.compile($('#noProductTemplate').html());
+        }
+        item.product.total = formatNumber(item.quantity * item.product.price);
         $('.order-items-list').append(template(item));
       });
-      console.log(data);
     });
   });
 

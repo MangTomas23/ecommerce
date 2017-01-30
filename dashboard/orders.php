@@ -108,6 +108,23 @@ require '../Classes/Order.php';
     </div>
   </div>
 </script>
+
+<script id="noProductTemplate" type="text/x-handlebars-template">
+  <div class="order-item row">
+    <div class="col-xs-2">
+      <img src="../assets/img/placeholder-image.png" />
+    </div>
+    <div class="col-xs-5">
+      <p style="line-height:100px">Product information could not retrieve.</p>
+    </div>
+    <div class="col-xs-2 quantity">
+      x {{ quantity }}
+    </div>
+    <div class="col-xs-3 total">
+      0.00
+    </div>
+  </div>
+</script>
 <script src="../assets/js/dashboard-orders.js"></script>
 <?php
 $order = new Order();
