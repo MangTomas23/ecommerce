@@ -124,7 +124,9 @@ require '../Classes/Order.php';
       <img src="../assets/img/placeholder-image.png" />
     </div>
     <div class="col-xs-5">
-      <p style="line-height:100px">Product information could not retrieve.</p>
+      <p style="line-height:100px">
+        Product information could not retrieve. Product no longer available.
+      </p>
     </div>
     <div class="col-xs-2 quantity">
       x {{ quantity }}

@@ -46,7 +46,9 @@ include 'authenticated.php';
             <?php }else{ ?>
               <img src="assets/img/placeholder-image.png" alt="" />
               <div class="product-details">
-                <p style="line-height: 100px; margin-left: 12px">Product information could not retrieve.</p>
+                <p style="line-height: 100px; margin-left: 12px">
+                  Product information could not retrieve. Product no longer available.
+                </p>
               </div>
               <p class="quantity">
                 x <?php echo $itm['quantity'] ?>
